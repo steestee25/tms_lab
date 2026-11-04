@@ -1,0 +1,9 @@
+<html><head><link rel=stylesheet href=base.css><style>body{width:712px;height:385px;padding:12px 22px;font-size:18px}td{padding:6px 4px}</style></head><body>
+<table><tr><th class=l>GoT chapters, TF-IDF + K-Means</th><th>k = 14<div class=grey style="font-size:12px;font-weight:400">one per character</div></th><th>k = 3<div class=grey style="font-size:12px;font-weight:400">elbow</div></th></tr>
+<tr class=sep><td class=l>Rand index</td><td>0.98</td><td>0.64</td></tr>
+<tr class=sep><td class=l>Adjusted Mutual Info</td><td>0.90</td><td>0.45</td></tr>
+<tr class=sep><td class=l>Homogeneity</td><td>0.92</td><td><span class=hl-o>0.32</span></td></tr>
+<tr class=sep><td class=l>Completeness</td><td>0.91</td><td><span class=hl-b>0.89</span></td></tr>
+<tr class=sep><td class=l>V-measure</td><td>0.92</td><td>0.47</td></tr>
+<tr class=sep><td class=l>Fowlkes-Mallows</td><td>0.88</td><td>0.42</td></tr></table>
+<div class=note>k = 3: few big clusters → each character stays in one cluster (complete), but each cluster mixes many characters (not homogeneous).</div></body></html>
