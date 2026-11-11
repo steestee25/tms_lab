@@ -1,3 +1,4 @@
+import os
 import subprocess
 import re
 import string
@@ -5,19 +6,21 @@ import nltk
 from nltk.corpus import stopwords
 
 try:
-    nltk.data.find("corpus/stopwords/english")
+    nltk.data.find("corpora/stopwords")
 except LookupError:
     nltk.download('stopwords')
-try:
-    nltk.data.find("taggers/averaged_perceptron_tagger")
-except LookupError:
-    nltk.download('averaged_perceptron_tagger')
+# NLTK >= 3.9 uses "averaged_perceptron_tagger_eng", older versions the name without "_eng"
+for _tagger in ("averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"):
+    try:
+        nltk.data.find(f"taggers/{_tagger}")
+    except LookupError:
+        nltk.download(_tagger, quiet=True)
 
 STOPWORDS = set(stopwords.words('english'))
 
 
 def remove_urls(text):
-    return re.sub(r'https?://\S+|www.\.\S+', '', text)
+    return re.sub(r'https?://\S+|www\.\S+', '', text)
 
 
 def remove_emojis(text):
@@ -28,7 +31,6 @@ def remove_emojis(text):
                                u"\U0001F680-\U0001F6FF"  # transport & map symbols
                                u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
                                u"\U00002500-\U00002BEF"  # chinese char
-                               u"\U00002702-\U000027B0"
                                u"\U00002702-\U000027B0"
                                u"\U000024C2-\U0001F251"
                                u"\U0001f926-\U0001f937"
@@ -79,10 +81,9 @@ def load_president_speeches():
 
     rows = []
     for txtfile in glob.glob("corpus/*.txt"):
-        _, _, filename = txtfile.partition("/")
-        filename = filename.replace(".txt", "")
+        filename = os.path.basename(txtfile).replace(".txt", "")
         year, _, president = filename.partition("-")
-        with open(txtfile, "r") as file_:
+        with open(txtfile, "r", encoding="utf-8") as file_:
             text = file_.read()
         rows.append((year, president, text))
     data = pd.DataFrame(rows, columns=["year", "president", "text"])

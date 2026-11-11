@@ -112,6 +112,9 @@ Feedback di uno studente: *"For matching the codes with theoretical part is hard
 - Dataset pubblici: scaricali in una cartella separata dello scratchpad e controlla che coincidano con gli output del notebook. `spam.csv` (Lab1) l'abbiamo preso da `raw.githubusercontent.com/mohitgupta-omg/Kaggle-SMS-Spam-Collection-Dataset-/master/spam.csv`: 5,572 righe e 455,188 caratteri, uguale al notebook.
 - Dopo l'esecuzione controlla che nel `.ipynb` non restino percorsi del sandbox (`scratchpad`, `claude-0`) né errori `Security Violation`.
 - Piccole differenze da versioni diverse delle librerie (per esempio ±2 token con NLTK) vanno dichiarate nelle risposte.
+- **Dati non scaricabili qui** (in Lab2: Dropbox, Google Drive e Hugging Face rispondono 403): esegui con `--allow-errors` e unisci gli output cella per cella. Se la cella è andata bene, tieni l'output nuovo; se è fallita per i dati mancanti, tieni l'output salvato in Colab. Per i comandi `!` (pip, wget, ls) tieni sempre l'output di Colab: quello locale mostra file e percorsi della sandbox.
+- Se un numero eseguito qui differisce da quello di Colab e delle slide per la versione della libreria (in Lab2: CV DT 0.85 qui contro 0.86 in Colab), tieni l'output di Colab e segnalalo al docente.
+- Prima di partire, controlla con `git log --all -- <file>` se in un altro branch esiste già una versione corretta del lab (Lab2 era stato corretto nel branch `claude/eloquent-clarke-q0huln`, mai unito a `main`).
 
 ## 8. Quiz Mentimeter
 
