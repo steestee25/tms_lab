@@ -89,11 +89,22 @@ La cella *How to think about it* viene da un feedback degli studenti ("spiegare 
 
 1. **What do we want?** il risultato finale (un numero, una tabella, una lista…)
 2. **What do we have?** i dati e le variabili, in che forma
-3. **How do we get there?** una catena di passi: "mi serve X → quindi devo fare Y → la funzione che lo fa è `Z`"
+3. **How do we get there?**
+
+   **Step 1: titolo-azione.** Cosa fare e perché, in 1–3 frasi.
+
+   *Code:* `la riga di codice`
+
+   **Step 2: …**
 4. **How do we check it?** che valore ci aspettiamo; come sarebbe un risultato sbagliato
 
 **Watch out:** l'errore più comune in questo esercizio.
 ```
+Regole per il passo 3 (il docente ha trovato poco chiaro il formato a frecce):
+- i passi sono **nell'ordine in cui si fanno**, ognuno con un **titolo-azione** ("Build the clusters", "Compare with the true labels");
+- prima la spiegazione (cosa e perché), poi il codice **su una riga a parte** (`*Code:*`), solo se serve; mai codice o pseudo-codice dentro la frase;
+- **niente frecce** `→`; non mescolare fatti, consigli e azioni nello stesso punto;
+- in Markdown lascia una riga vuota tra spiegazione e `*Code:*`: in Colab due righe consecutive si uniscono.
 
 ### 4.3 Test di autonomia (obbligatorio)
 Rileggi **ogni** esercizio della versione studente e chiediti: *lo studente ha tutto quello che serve?*
