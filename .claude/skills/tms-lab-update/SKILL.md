@@ -76,15 +76,21 @@ LabN/
 [solution code, commented]                ← tag solution
 **Answers** / **What to look for**        ← tag solution: una risposta per ogni domanda
 ```
-La cella *How to think about it* viene da un feedback degli studenti ("spiegare il ragionamento per la soluzione"). Va scritta per prima: è il piano che il codice poi segue, con i commenti numerati `# 1.`, `# 2.`, … Struttura (il docente ha chiesto "un pelino più di spiegazione"):
+La cella *How to think about it* viene da un feedback degli studenti ("spiegare il ragionamento per la soluzione"). Va scritta per prima: è il piano che il codice poi segue, con i commenti numerati `# 1.`, `# 2.`, … Il docente la mostra **dopo** che gli studenti hanno provato l'esercizio: deve rappresentare il **ragionamento** che porta alla soluzione, non solo la lista delle istruzioni. Le funzioni esatte si possono nominare. Due livelli:
 
 ```markdown
 ### How to think about it
 
-**Goal:** cosa vogliamo ottenere, in una frase.
+**The idea, without code**
 
-1. **Nome del passo.** Cosa fare (con la funzione da usare) **e perché** (1–2 frasi).
-2. …
+- il problema e il principio che lo risolve, in parole semplici (3–4 punti, nessun riferimento al codice, niente backtick)
+
+**From the idea to the code**
+
+1. **What do we want?** il risultato finale (un numero, una tabella, una lista…)
+2. **What do we have?** i dati e le variabili, in che forma
+3. **How do we get there?** una catena di passi: "mi serve X → quindi devo fare Y → la funzione che lo fa è `Z`"
+4. **How do we check it?** che valore ci aspettiamo; come sarebbe un risultato sbagliato
 
 **Watch out:** l'errore più comune in questo esercizio.
 ```
