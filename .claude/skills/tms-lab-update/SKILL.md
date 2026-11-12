@@ -76,7 +76,18 @@ LabN/
 [solution code, commented]                ← tag solution
 **Answers** / **What to look for**        ← tag solution: una risposta per ogni domanda
 ```
-La cella *How to think about it* viene da un feedback degli studenti ("spiegare il ragionamento per la soluzione"). Va scritta per prima: è il piano che il codice poi segue, con i commenti numerati `# 1.`, `# 2.`, …
+La cella *How to think about it* viene da un feedback degli studenti ("spiegare il ragionamento per la soluzione"). Va scritta per prima: è il piano che il codice poi segue, con i commenti numerati `# 1.`, `# 2.`, … Struttura (il docente ha chiesto "un pelino più di spiegazione"):
+
+```markdown
+### How to think about it
+
+**Goal:** cosa vogliamo ottenere, in una frase.
+
+1. **Nome del passo.** Cosa fare (con la funzione da usare) **e perché** (1–2 frasi).
+2. …
+
+**Watch out:** l'errore più comune in questo esercizio.
+```
 
 ### 4.3 Test di autonomia (obbligatorio)
 Rileggi **ogni** esercizio della versione studente e chiediti: *lo studente ha tutto quello che serve?*
@@ -97,8 +108,23 @@ Rileggi **ogni** esercizio della versione studente e chiediti: *lo studente ha t
 ## 6. Collegare teoria e codice (dai feedback di Lab1)
 
 Feedback di uno studente: *"For matching the codes with theoretical part is hard for me because it was too fast. More explanation on the codes like what are they referring to"*.
-- All'inizio di ogni sezione metti un riquadro **"From the slide to the code"** di 2–3 righe: formula o concetto della slide → riga del notebook. Per esempio:
-  > Slide *TF-IDF*: `IDF(w) = log(n / df(w))` → in the code: `idf = np.log10(n / df)`
+- All'inizio di ogni sezione metti un riquadro **"From the slide to the code"**: una **tabella a due colonne**, *In the slide* | *In the code*. Per esempio:
+
+  ```markdown
+  **📎 From the slide to the code** · slide *TF-IDF*
+
+  | In the slide | In the code |
+  |---|---|
+  | df(w): in how many documents w appears | `df = (X_count > 0).sum(axis=0)` |
+  | IDF(w) = log(n / df(w)) | `idf = np.log10(n / df)` |
+  ```
+  Regole (dal feedback del docente: il formato a frecce e citazioni "non si capiva"):
+  - **3–5 righe** per tabella; ogni riga = **un** concetto ↔ **una** riga di codice;
+  - colonna sinistra: il concetto **in poche parole**, non la frase intera della slide; niente virgolette;
+  - colonna destra: il **codice esatto** del notebook, al massimo con 4–6 parole di spiegazione;
+  - **niente frecce, niente elenchi** (un elenco numerato dentro un punto elenco si rompe in Colab), niente blockquote `>`;
+  - mai il carattere `|` dentro una cella: rompe la tabella (riscrivi la regex o la formula senza).
+- Lo script della lezione per il docente (tempi, righe 🔑/👀/⏭, domande ❓ "prevedi, poi esegui", come presentare le soluzioni) si scrive su richiesta: vedi lo script di Lab 2.1 come modello.
 - Usa nel codice **gli stessi nomi** delle slide (`tf`, `idf`, `df`, `window`, `vector_size`, …).
 - Se il notebook spiega la teoria (per esempio *How Doc2Vec learns*), usa **le stesse parole e lo stesso esempio della slide**.
 - Suggerimento per l'aula, da proporre al docente: "prevedi, poi esegui", cioè chiedere cosa ci si aspetta prima di eseguire una cella.
