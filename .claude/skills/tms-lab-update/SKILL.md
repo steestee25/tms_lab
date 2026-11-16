@@ -120,7 +120,7 @@ Rileggi **ogni** esercizio della versione studente e chiediti: *lo studente ha t
 
 ## 5. Soluzioni e risposte
 
-- **Commenti nel codice**: brevi, chiari e **utili**. Dicono *cosa fa* l'istruzione e *perché*, non ripetono il codice. Togli i commenti inutili come `# EXERCISE: fit to the corpus` o `# try also X and see what happens!`. Se cambi solo i commenti, verifica che il codice sia identico confrontando l'AST (`ast.dump(ast.parse(src))`).
+- **Commenti nel codice**: brevi, chiari e **utili**, nello stile del docente: una riga sopra ogni istruzione o blocco, niente commenti a fine riga. Un commento di più righe solo quando serve davvero una spiegazione (es. perché `transform` e non `fit_transform` sul test, la prima volta che compare). Dicono *cosa fa* l'istruzione e *perché*, non ripetono il codice. Togli i commenti inutili come `# EXERCISE: fit to the corpus` o `# try also X and see what happens!`. Se cambi solo i commenti, verifica che il codice sia identico confrontando l'AST (`ast.dump(ast.parse(src))`).
 - **Ogni domanda della consegna ha una risposta** nella cella *Answers*, etichettata come la domanda (A, B, …), con i **numeri veri** calcolati sui dati del notebook.
 - **Risultati casuali** (Word2Vec, Doc2Vec, k-means, …): con `workers > 1` il `seed` non basta. Nelle risposte **non scrivere liste esatte** di parole o di documenti vicini: scrivi solo quello che resta vero a ogni esecuzione (il *tipo* di parole, i punteggi ≈ 0.99, i numeri riassuntivi). Aggiungi una volta per notebook la nota *"Note: your results may differ"*.
 - Le spiegazioni usano esempi piccoli e concreti del corpus, con il calcolo scritto (per esempio "√7 = 2.65 contro √9 = 3.00" per mostrare perché la distanza euclidea preferisce i documenti corti).
