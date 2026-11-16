@@ -32,6 +32,7 @@ LabN/
   python .claude/skills/tms-lab-update/scripts/make_student_versions.py LabN
   ```
   Rigenerala dopo **ogni** modifica alla versione del docente.
+- **Gli studenti non devono conoscere il repository.** Il docente carica i file su e-learning e gli studenti mettono la cartella del lab sul loro Drive (`MyDrive/Labs/LABn_TMS/`, dati in `data/`). Nei notebook **mai** link a GitHub o a `raw.githubusercontent.com` di questo repo: file del corso (es. `preprocessing_functions.py`) si leggono dal Drive (`drive.mount` + `sys.path.append(lab_path)`), immagini come **allegati** della cella markdown (`![alt](attachment:nome.jpg)`, ridimensionate a ~700 px). Prima di ogni push: `grep -c "steestee\|raw.githubusercontent" Lab*/*.ipynb` deve dare 0.
 - Su GitHub la **GitHub Action** `.github/workflows/student-versions.yml` fa lo stesso da sola a ogni push su `main` che tocca un notebook (anche quando il docente salva da Colab con *Save a copy in GitHub*), e fa un commit "Rebuild student notebooks (automatic)". Quindi **prima di lavorare e prima di ogni push fai `git pull origin main`**: `main` può avere commit nuovi del docente o della Action.
 - Il docente modifica i notebook in Colab e li salva su `main` (o su un altro branch, e allora lo dice): parti sempre dalla sua versione e confronta cella per cella prima di toccare qualcosa.
 - Quando scrivi un notebook via Python, usa `json.dumps(nb, indent=2, ensure_ascii=False)`, che è il formato di Colab. Così il diff resta piccolo.
