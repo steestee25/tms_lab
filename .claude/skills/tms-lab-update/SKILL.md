@@ -145,7 +145,7 @@ Feedback di uno studente: *"For matching the codes with theoretical part is hard
   - colonna destra: il **codice esatto** del notebook, al massimo con 4–6 parole di spiegazione;
   - **niente frecce, niente elenchi** (un elenco numerato dentro un punto elenco si rompe in Colab), niente blockquote `>`;
   - mai il carattere `|` dentro una cella: rompe la tabella (riscrivi la regex o la formula senza).
-- Lo script della lezione per il docente (tempi, righe 🔑/👀/⏭, domande ❓ "prevedi, poi esegui", come presentare le soluzioni) si scrive su richiesta: vedi lo script di Lab 2.1 come modello.
+- Lo script della lezione per il docente (tempi, righe 🔑/👀/⏭, domande ❓ "prevedi, poi esegui", come presentare le soluzioni) si scrive su richiesta: vedi lo script del lab di clustering (ora Lab 2.3) come modello.
 - Usa nel codice **gli stessi nomi** delle slide (`tf`, `idf`, `df`, `window`, `vector_size`, …).
 - Se il notebook spiega la teoria (per esempio *How Doc2Vec learns*), usa **le stesse parole e lo stesso esempio della slide**.
 - Suggerimento per l'aula, da proporre al docente: "prevedi, poi esegui", cioè chiedere cosa ci si aspetta prima di eseguire una cella.
