@@ -1,0 +1,47 @@
+# Rebuild the student notebooks (*_no_solutions.ipynb) every time a notebook
+# with solutions changes on main: cells tagged 'solution' are removed.
+# It also runs when a notebook is saved from Colab with "Save a copy in GitHub".
+name: Student versions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Lab*/*.ipynb'
+      - '.claude/skills/tms-lab-update/scripts/make_student_versions.py'
+  workflow_dispatch:   # can also be started by hand from the Actions tab
+
+permissions:
+  contents: write      # needed to commit the rebuilt notebooks
+
+concurrency:
+  group: student-versions
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild the *_no_solutions notebooks
+        run: |
+          for lab in Lab*/; do
+            python .claude/skills/tms-lab-update/scripts/make_student_versions.py "$lab"
+          done
+
+      - name: Commit the changes, if any
+        run: |
+          if git diff --quiet -- 'Lab*/*_no_solutions.ipynb'; then
+            echo "Student notebooks already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Lab*/*_no_solutions.ipynb'
+          git commit -m "Rebuild student notebooks (automatic)"
+          git push
