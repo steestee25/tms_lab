@@ -68,8 +68,9 @@ LabN/
 - Metti un **esercizio breve dopo ogni blocco di teoria**, non tutti alla fine. Le parti di sola consultazione (in Lab1: POS, chunking, NER) si possono segnare come *self-study*.
 
 ### 4.2 Celle di ogni esercizio (nella versione del docente)
+**Livelli dei titoli:** il titolo dell'esercizio ha lo **stesso livello** delle sezioni di teoria (di solito `##`), e `How to think about it` / `Solution` sono un livello sotto (`###`). Se l'esercizio ha un livello più alto della teoria (`#` contro `##`), nell'indice di Colab la teoria che segue finisce *dentro* l'esercizio.
 ```
-# Exercise N.k: <title>                  ← markdown: consegna
+## Exercise N.k: <title>                 ← markdown: consegna (stesso livello `##` delle sezioni di teoria)
 [given cells]                             ← dati/preparazione non centrali (es. corpus tokenizzato)
 [skeleton with ___]                       ← facoltativo, per esercizi lunghi
 # Your code here                          ← cella vuota per lo studente
